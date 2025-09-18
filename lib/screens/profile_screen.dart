@@ -1,4 +1,4 @@
-// lib/screens/profile_screen.dart
+
 import 'package:flutter/material.dart';
 import '../widgets/bottom_nav_bar.dart';
 

@@ -9,7 +9,7 @@ import 'package:insgram1/models/post_model.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  // Stories
+  
   final List<String> storiesImages = [
     'assets/images/photo_5917939320541530834_y.jpg',
     'assets/images/photo_5917939320541530832_y.jpg',
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
     'Jana',
   ];
 
-  // Posts
+
   final List<PostModel> posts = [
     PostModel(
       userName: 'Heba_01',
@@ -91,11 +91,11 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.send_outlined, color: Colors.white),
             onPressed: () {
-              // انتقل إلى صفحة الرسائل
+             
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DMScreen(), // صفحتك الخاصة بالرسائل
+                  builder: (context) => DMScreen(), 
                 ),
               );
             },
