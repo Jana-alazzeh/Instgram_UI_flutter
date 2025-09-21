@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                  //  Image.asset('assets/images/photo_5917939320541530832_y.jpg', height: 70),
+                
                     Text(
                       'Instagram',
                       style: TextStyle(
@@ -33,7 +33,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 50),
 
-                    // Profile Picture
+                  
                     CircleAvatar(
                       radius: 40,
                       backgroundImage: AssetImage('assets/images/Untitled design (17).png'),
@@ -41,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
 
-                    // Username
+                    
                     Text(
                       '_jana_04_',
                       style: TextStyle(
@@ -52,7 +52,6 @@ class LoginScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 24),
 
-                    // Login Button
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -93,6 +92,9 @@ class LoginScreen extends StatelessWidget {
 
 
             Divider(color: secondaryTextColor.withOpacity(0.5), height: 1),
+
+            Divider(color: secondaryTextColor.withOpacity(0.5), height: 1), 
+
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Row(

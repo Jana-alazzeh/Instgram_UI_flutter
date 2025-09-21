@@ -1,4 +1,4 @@
-import 'package:easy_localization/easy_localization.dart';
+// lib/screens/profile_screen.dart
 import 'package:flutter/material.dart';
 import '../widgets/bottom_nav_bar.dart';
 
@@ -7,8 +7,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     Color textColor = Colors.white;
     Color backgroundColor = Colors.black;
-    Color secondaryTextColor = Colors.grey[400] ?? Colors.grey;
-
+    Color secondaryTextColor = Colors.grey[400]!;
 
     return DefaultTabController(
       length: 2,
@@ -51,17 +50,17 @@ class ProfileScreen extends StatelessWidget {
                         backgroundImage: AssetImage('assets/images/Untitled design (17).png'),
                       ),
                       const Spacer(),
-                      _buildStatColumn('3', 'Posts'.tr()),
+                      _buildStatColumn('3', 'Posts'),
                       const Spacer(),
-                      _buildStatColumn('173', 'Followers'.tr()),
+                      _buildStatColumn('173', 'Followers'),
                       const Spacer(),
-                      _buildStatColumn('866', 'Following'.tr()),
+                      _buildStatColumn('866', 'Following'),
                       const Spacer(),
                     ],
                   ),
                   const SizedBox(height: 12),
                   Text('Jana', style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 16)),
-                  Text('Computer Science|ZU ', style: TextStyle(color: secondaryTextColor)),
+                    Text('Computer Science|ZU ', style: TextStyle(color: secondaryTextColor)),
                   Text('اللّهم انت اصلحت الصالحين قأصلحنا💗 ', style: TextStyle(color: secondaryTextColor)),
                   const SizedBox(height: 20),
                   SizedBox(
@@ -71,7 +70,7 @@ class ProfileScreen extends StatelessWidget {
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(color: secondaryTextColor),
                       ),
-                      child: Text('Edit Profile'.tr(), style: TextStyle(color: textColor)),
+                      child: Text('Edit Profile', style: TextStyle(color: textColor)),
                     ),
                   ),
                   const SizedBox(height: 20),
@@ -80,8 +79,9 @@ class ProfileScreen extends StatelessWidget {
                     child: ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
-                        _buildHighlightItem('New'.tr(), null, isNew: true),
+                        _buildHighlightItem('New', null, isNew: true),
                         _buildHighlightItem('جَ', 'assets/images/photo_5917939320541530838_y.jpg'),
+
                       ],
                     ),
                   ),
@@ -95,6 +95,7 @@ class ProfileScreen extends StatelessWidget {
               unselectedLabelColor: secondaryTextColor,
               tabs: [
                 Tab(icon: Icon(Icons.grid_on)),
+                //tab(icon:Icon(Icons.repeat_rounded)),
                 Tab(icon: Icon(Icons.person_pin_outlined)),
               ],
             ),
@@ -117,7 +118,7 @@ class ProfileScreen extends StatelessWidget {
     return Column(
       children: [
         Text(count, style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
-        Text(label.tr(), style: TextStyle(color: Colors.white, fontSize: 14)),
+        Text(label, style: TextStyle(color: Colors.white, fontSize: 14)),
       ],
     );
   }
@@ -134,32 +135,34 @@ class ProfileScreen extends StatelessWidget {
             backgroundImage: isNew ? null : AssetImage(imagePath!),
           ),
           const SizedBox(height: 4),
-          Text(label.tr(), style: TextStyle(color: Colors.white, fontSize: 12)),
+          Text(label, style: TextStyle(color: Colors.white, fontSize: 12)),
         ],
       ),
     );
   }
 
-  Widget _buildPhotoGrid() {
-    final List<String> images = [
-      'assets/images/photo_5917939320541530838_y.jpg',
-      'assets/images/photo_5917939320541530832_y.jpg',
-      'assets/images/photo_5917939320541530834_y.jpg',
-    ];
 
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: images.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
-        mainAxisSpacing: 2,
-        crossAxisSpacing: 2,
-      ),
-      itemBuilder: (context, index) => Image.asset(
-        images[index],
-        fit: BoxFit.cover,
-      ),
-    );
+    Widget _buildPhotoGrid() {
+      final List<String> images = [
+        'assets/images/photo_5917939320541530838_y.jpg',
+        'assets/images/photo_5917939320541530832_y.jpg',
+        'assets/images/photo_5917939320541530834_y.jpg',
+      ];
+
+      return GridView.builder(
+        shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: images.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          mainAxisSpacing: 2,
+          crossAxisSpacing: 2,
+        ),
+        itemBuilder: (context, index) => Image.asset(
+          images[index],
+          fit: BoxFit.cover,
+        ),
+      );
+    }
+
   }
-}
