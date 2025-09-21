@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart'; // <-- إضافة easy_localization
 import 'package:insgram1/screens/DM_screen.dart';
 import '../widgets/post_card.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'package:insgram1/models/post_model.dart';
-
-
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
@@ -71,9 +70,9 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         elevation: 0,
-        title: const Text(
-          'Instagram',
-          style: TextStyle(
+        title: Text(
+          'Instagram'.tr(),
+          style: const TextStyle(
             fontFamily: 'Billabong',
             fontSize: 32,
             color: Colors.white,
@@ -91,21 +90,29 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.send_outlined, color: Colors.white),
             onPressed: () {
-              // انتقل إلى صفحة الرسائل
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DMScreen(), // صفحتك الخاصة بالرسائل
+                  builder: (context) => DMScreen(),
                 ),
               );
             },
           ),
+          // زر تغيير اللغة (الكبسة)
+          IconButton(
+            icon: const Icon(Icons.language, color: Colors.white),
+            onPressed: () {
+              if (context.locale.languageCode == 'en') {
+                context.setLocale(const Locale('ar'));
+              } else {
+                context.setLocale(const Locale('en'));
+              }
+            },
+          ),
         ],
       ),
-
       body: Column(
         children: [
-
           SizedBox(
             height: 100,
             child: ListView.builder(
@@ -115,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                 if (index == 0) {
                   return _buildStoryItem(
                     isYourStory: true,
-                    username: 'Your Story',
+                    username: 'Your Story'.tr(),
                   );
                 }
                 return _buildStoryItem(
@@ -127,8 +134,6 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           Divider(color: Colors.grey[800], height: 1),
-
-
           Expanded(
             child: ListView.builder(
               itemCount: posts.length,
@@ -138,7 +143,6 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomNavBar(),
-
     );
   }
 
@@ -149,7 +153,7 @@ class HomeScreen extends StatelessWidget {
     bool isYourStory = false,
   }) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       child: Column(
         children: [
           Stack(
@@ -163,20 +167,20 @@ class HomeScreen extends StatelessWidget {
                 radius: 30,
                 backgroundColor: Colors.grey[800],
                 backgroundImage: isYourStory ? null : AssetImage(imagePath!),
-                child: isYourStory ?  Icon(Icons.add, color: Colors.white, size: 30) : null,
+                child: isYourStory ? const Icon(Icons.add, color: Colors.white, size: 30) : null,
               ),
               if (isLive)
                 Positioned(
                   bottom: 0,
                   child: Container(
-                    padding:  EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                    padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                     decoration: BoxDecoration(
                       color: Colors.red,
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    child:  Text(
-                      'LIVE',
-                      style: TextStyle(
+                    child: Text(
+                      'LIVE'.tr(),
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
@@ -186,8 +190,8 @@ class HomeScreen extends StatelessWidget {
                 ),
             ],
           ),
-          SizedBox(height: 4),
-          Text(username, style:  TextStyle(color: Colors.white, fontSize: 12)),
+          const SizedBox(height: 4),
+          Text(username, style: const TextStyle(color: Colors.white, fontSize: 12)),
         ],
       ),
     );

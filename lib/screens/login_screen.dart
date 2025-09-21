@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -6,8 +7,8 @@ class LoginScreen extends StatelessWidget {
 
     Color primaryColor = Colors.blue;
      Color textColor = Colors.white;
-     Color secondaryTextColor = Colors.grey[400]!;
-     Color backgroundColor = Colors.black;
+    Color secondaryTextColor = Colors.grey[400] ?? Colors.grey;
+    Color backgroundColor = Colors.black;
      Color cardColor = Colors.grey[900]!;
 
     return Scaffold(
@@ -35,7 +36,7 @@ class LoginScreen extends StatelessWidget {
                     // Profile Picture
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('assets/images/Untitled design (17).png'), // ضع مسار صورة ملفك الشخصي هنا
+                      backgroundImage: AssetImage('assets/images/Untitled design (17).png'),
 
                     ),
                     const SizedBox(height: 12),
@@ -81,7 +82,7 @@ class LoginScreen extends StatelessWidget {
 
                       },
                       child: Text(
-                        'Switch accounts',
+                        'Switch accounts'.tr(),
                         style: TextStyle(color: primaryColor, fontSize: 15),
                       ),
                     ),
@@ -91,7 +92,7 @@ class LoginScreen extends StatelessWidget {
             ),
 
 
-            Divider(color: secondaryTextColor.withOpacity(0.5), height: 1), // خط فاصل رفيع
+            Divider(color: secondaryTextColor.withOpacity(0.5), height: 1),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child: Row(

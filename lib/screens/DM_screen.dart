@@ -1,4 +1,5 @@
 // lib/screens/dm_screen.dart
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:insgram1/models/message_model.dart';
 
@@ -94,7 +95,7 @@ class DMScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: backgroundColor,
         title: Text(
-          'Direct',
+          'Direct'.tr(),
           style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
@@ -118,7 +119,7 @@ class DMScreen extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Search',
+                hintText: 'Search'.tr(),
                 hintStyle: TextStyle(color: Colors.grey),
                 prefixIcon: Icon(Icons.search, color: Colors.grey),
                 filled: true,
